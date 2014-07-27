@@ -17,10 +17,10 @@ Storage.prototype.ensureStorage = function() {
 		return Promise.resolve()
 	}
 
-	return this.initStorage();
+	return this.init();
 };
 
-Storage.prototype.initStorage = function() {
+Storage.prototype.init = function() {
 	var now = new Date().getTime();
 
 	var initialData = {
@@ -106,7 +106,9 @@ Storage.prototype.create = function(collectionName, item) {
 		col.updated_at = new Date().getTime();
 		col.items.push(item);
 
-		return self.updateCollection(collectionName, col);
+		return self.updateCollection(collectionName, col).then(function() {
+			return item;
+		});
 	});
 };
 
