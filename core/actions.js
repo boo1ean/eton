@@ -1,12 +1,34 @@
-var Storage = require('./storage');
-var config = require('./config');
 var usage = require('./usage');
+var notes = require('./services/notes');
+var log = require('./log');
+var Promise = require("bluebird");
+var prompt = Promise.promisifyAll(require("prompt"));
 
-var storage = new Storage(config.storage);
+prompt.message = ''
+prompt.delimiter = ''
 
 var actions = {
-	'note <note>': function(opt, note) {
-		console.log(note);
+	'note': function(opt, note) {
+		var schema = {
+			properties: {
+				note: {
+					required: true,
+					description: 'note:'
+				},
+
+				tags: {
+					description: 'tags:'
+				}
+			}
+		};
+
+		prompt.start();
+
+		prompt.getAsync(schema)
+			.then(notes.create)
+			.then(function() {
+				log.info('\nok');
+			});
 	},
 
 	'default': usage
