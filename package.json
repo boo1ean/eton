@@ -16,7 +16,7 @@
     "todo"
   ],
   "bin": {
-  	  "eton": "./bin/eton"
+    "eton": "./bin/eton"
   },
   "author": "Egor Gumenyuk <boo1ean0807@gmail.com>",
   "license": "MIT",
@@ -25,6 +25,10 @@
   },
   "homepage": "https://github.com/boo1ean/eton",
   "dependencies": {
+    "bluebird": "^2.2.2",
+    "fs-extra": "^0.10.0",
+    "lodash": "^2.4.1",
+    "prompt": "^0.2.13",
     "realist": "^0.2.5"
   }
 }
