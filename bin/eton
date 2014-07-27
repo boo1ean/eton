@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+var realist = require('realist');
+var actions = require('../core/actions');
+realist(actions);
