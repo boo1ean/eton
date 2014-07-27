@@ -1,1 +1,12 @@
-eton - life tracking and management
+eton - life tracking and management for the best
+
+Notes
+=====
+
+eton note  - create new note
+eton notes - list of notes
+
+Utils
+=====
+
+eton reset - destroy all data
