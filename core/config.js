@@ -1,6 +1,11 @@
 var config = {
 	storage: {
-		default_storage: '~/.eton'
+		path: (
+			process.env.HOME
+			|| process.env.HOMEPATH
+			|| process.env.USERPROFILE
+		) + '/.eton'
+
 	}
 };
 
